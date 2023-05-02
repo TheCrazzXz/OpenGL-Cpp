@@ -59,9 +59,11 @@ public:
 
 			std::vector<Entity>& batch = pair.second; // Getting every entity that's using it
 
+			prepareTexturedModel(model); // <--- This is the right place for this method to be called in
+			
 			for(auto &entity : batch) // Loop all the entities in the batch 
 			{
-				prepareTexturedModel(model);
+				//prepareTexturedModel(model); <---- [update 2 of may, 2023], don't put this here 
 				prepareInstance(entity);
 
 				// render the entity
